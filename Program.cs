@@ -61,8 +61,11 @@ namespace HomeWork28._04
             {
                 if (clients[i].Balance != balances[i].Balance)
                 {
-                    System.Console.WriteLine($"Id клиента: {clients[i].Id}\nСтарый баланс: {balances[i].Balance}  \nИзмененный баланс: {clients[i].Balance}");
+                    Console.ForegroundColor = (balances[i].Balance <= clients[i].Balance)?ConsoleColor.Green:ConsoleColor.Red;
+                    string raznica = (balances[i].Balance <= clients[i].Balance)?$"+{clients[i].Balance-balances[i].Balance}":$"{clients[i].Balance-balances[i].Balance}";
+                    System.Console.WriteLine($"Id клиента: {clients[i].Id}\nСтарый баланс: {balances[i].Balance}  \nИзмененный баланс: {clients[i].Balance}\nРазница: "+ raznica);
                     balances[i].Balance = clients[i].Balance;
+                    Console.ForegroundColor = ConsoleColor.Gray;
                 }
             }
         }
